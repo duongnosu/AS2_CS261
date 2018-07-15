@@ -320,9 +320,9 @@ int containsDynArr(DynArr *v, TYPE val)
 		if(EQ(val, v->data[i])){ //found the item
 			return 1;
 		}
-		return 0;
-	}
 
+	}
+	return 0;
 }
 
 /*	Removes the first occurrence of the specified value from the collection
