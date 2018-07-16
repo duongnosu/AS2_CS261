@@ -219,7 +219,7 @@ void removeAtDynArr(DynArr *v, int idx)
 	/* FIXME: You will write this function */
 	assert(v !=0);
 	assert(idx >=0 && idx < v->size);
-	for (int i=0; i < v->size; i++){
+	for (int i=idx; i < v->size; i++){
 		v->data[i] = v->data[i+1];
 	}
 	v->size--;
@@ -292,7 +292,7 @@ TYPE topDynArr(DynArr *v)
 void popDynArr(DynArr *v)
 {
 	/* FIXME: You will write this function */
-	assert(v->size >0);
+
 	v->size--;
 }
 
@@ -316,6 +316,8 @@ int containsDynArr(DynArr *v, TYPE val)
 	/* FIXME: You will write this function */
 
 	/* FIXME:  You will change this return value */
+	assert(v->size >0);
+
 	for (int i=0; i< v->size;i++){
 		if(EQ(val, v->data[i])){ //found the item
 			return 1;
@@ -338,6 +340,8 @@ int containsDynArr(DynArr *v, TYPE val)
 void removeDynArr(DynArr *v, TYPE val)
 {
 	/* FIXME: You will write this function */
+	assert(v->size >0);
+	assert(v!=0);
 	for (int i=0; i<v->size; i++){
 		if(EQ(val, v->data[i])){
 			removeAtDynArr(v,i);
