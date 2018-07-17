@@ -32,11 +32,30 @@ char nextChar(char* s)
 */
 int isBalanced(char* s)
 {
-
-	hold= newDynArr(2);
-	if(s->data == "(" || s->data == "{" || s->data = "["){
-		pushDynArr(hold,  )
+	DynArr *stack;
+	stack = newDynArr(2);
+	while (nextChar(s)!= '\0'){
+		if (nextChar(s) == '(' || nextChar(s) == '[' || nextChar(s)=='{'){
+			addDynArr(stack, nextChar(s));
+		}
+		for (int i=0; i<stack->size;i++){
+		 	if (nextChar(s)== ')' && nextChar(s) == getDynArr(stack,i)){
+				removeAtDynArr(stack, i);
+			}
+			else if (nextChar(s)== ']' && nextChar(s) == getDynArr(stack,i)){
+				removeAtDynArr(stack, i);
+			}
+			else if (nextChar(s)== '}' && nextChar(s) == getDynArr(stack,i)){
+				removeAtDynArr(stack, i);
+			}
+		}
 	}
+	if (isEmptyDynArr(stack)==1){
+		return 0;
+	}
+
+	return 1;
+
 }
 
 int main(int argc, char* argv[]){

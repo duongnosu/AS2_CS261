@@ -17,9 +17,14 @@
 # endif
 
 typedef struct DynArr DynArr;
-
+struct DynArr
+{
+	TYPE *data;		/* pointer to the data array */
+	int size;		/* Number of elements in the array */
+	int capacity;	/* capacity ofthe array */
+};
 /* Dynamic Array Functions */
-void initDynArr(DynArr *v, int capacity);	
+void initDynArr(DynArr *v, int capacity);
 DynArr *newDynArr(int cap);
 
 void freeDynArr(DynArr *v);
@@ -39,7 +44,7 @@ void pushDynArr(DynArr *v, TYPE val);
 TYPE topDynArr(DynArr *v);
 void popDynArr(DynArr *v);
 
-/* Bag Interface */	
+/* Bag Interface */
 /* Note addDynArr is already declared above*/
 int containsDynArr(DynArr *v, TYPE val);
 void removeDynArr(DynArr *v, TYPE val);
