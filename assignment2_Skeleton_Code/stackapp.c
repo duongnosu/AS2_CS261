@@ -1,4 +1,10 @@
 /*	stack.c: Stack application. */
+/*********************************************************************
+** Program Filename: stackapp.c
+** Author: Nhu Duong
+** Date: July 16, 2018
+** Description: Using functions and stack to check the string balance 
+*********************************************************************/
 #include <stdio.h>
 #include <stdlib.h>
 #include <assert.h>
@@ -34,28 +40,32 @@ int isBalanced(char* s)
 {
 	DynArr *stack;
 	stack = newDynArr(2);
-	while (nextChar(s)!= '\0'){
-		if (nextChar(s) == '(' || nextChar(s) == '[' || nextChar(s)=='{'){
-			addDynArr(stack, nextChar(s));
+	char cur_char;
+	char top_stack;
+	cur_char = nextChar(s);
+	while (cur_char!= '\0'){
+		if (cur_char == '(' || cur_char == '[' || cur_char=='{'){
+			pushDynArr(stack, cur_char);
 		}
-		for (int i=0; i<stack->size;i++){
-		 	if (nextChar(s)== ')' && nextChar(s) == getDynArr(stack,i)){
-				removeAtDynArr(stack, i);
-			}
-			else if (nextChar(s)== ']' && nextChar(s) == getDynArr(stack,i)){
-				removeAtDynArr(stack, i);
-			}
-			else if (nextChar(s)== '}' && nextChar(s) == getDynArr(stack,i)){
-				removeAtDynArr(stack, i);
-			}
+		// else if (cur_char == ')' || cur_char == ']'|| cur_char =='}' )
+		// 	popDynArr(stack);
+		top_stack = topDynArr(stack);
+
+		if (cur_char == ')' &&  top_stack == '('){
+			popDynArr(stack);
+		}
+		else if (cur_char == ']' && top_stack == '['){
+			popDynArr(stack);
+		}
+		else if (cur_char == '}' && top_stack == '{'){
+			popDynArr(stack);
 		}
 	}
-	if (isEmptyDynArr(stack)==1){
-		return 0;
+
+	if (isEmptyDynArr(stack)== 1){
+		return 1;
 	}
-
-	return 1;
-
+	return 0;
 }
 
 int main(int argc, char* argv[]){

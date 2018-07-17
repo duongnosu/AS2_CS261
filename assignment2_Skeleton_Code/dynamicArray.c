@@ -3,20 +3,14 @@
 ** Program Filename: dynamicArray.c
 ** Author: Nhu Duong
 ** Date: July 15th, 2018
-** Description:
-** Input:
-** Output:
+** Description: functions for dynamic array and stack 
+
 *********************************************************************/
 #include <assert.h>
 #include <stdlib.h>
 #include "dynArray.h"
 
-// struct DynArr
-// {
-// 	TYPE *data;		/* pointer to the data array */
-// 	int size;		/* Number of elements in the array */
-// 	int capacity;	/* capacity ofthe array */
-// };
+
 
 
 /* ************************************************************************

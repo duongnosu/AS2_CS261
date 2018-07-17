@@ -3,6 +3,12 @@
  * This test suite is by no means complete or thorough.
  * More testing is needed on your own.
  */
+ /*********************************************************************
+ ** Program Filename: testDynArray.c
+ ** Author: Nhu Duong
+ ** Date: July 16, 2018
+ ** Description: main and testing for the functions for dynamic array.
+ *********************************************************************/
 #include <stdio.h>
 #include <stdlib.h>
 #include "dynArray.h"

@@ -1,4 +1,5 @@
 /* 	dynamicArray_a1.h : Dynamic Array implementation. */
+
 #ifndef DYNAMIC_ARRAY_INCLUDED
 #define DYNAMIC_ARRAY_INCLUDED 1
 
