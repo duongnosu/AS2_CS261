@@ -3,7 +3,7 @@
 ** Program Filename: stackapp.c
 ** Author: Nhu Duong
 ** Date: July 16, 2018
-** Description: Using functions and stack to check the string balance 
+** Description: Using functions and stack to check the string balance
 *********************************************************************/
 #include <stdio.h>
 #include <stdlib.h>
@@ -47,25 +47,37 @@ int isBalanced(char* s)
 		if (cur_char == '(' || cur_char == '[' || cur_char=='{'){
 			pushDynArr(stack, cur_char);
 		}
-		// else if (cur_char == ')' || cur_char == ']'|| cur_char =='}' )
+		 if (cur_char == ')' || cur_char == ']'|| cur_char =='}' ){
 		// 	popDynArr(stack);
-		top_stack = topDynArr(stack);
+			int sj;
+			sj= sizeDynArr(stack);
+			if (sj ==0){
+				return 0;
+			}
+			top_stack = topDynArr(stack);
+			popDynArr(stack);
+		}
 
-		if (cur_char == ')' &&  top_stack == '('){
-			popDynArr(stack);
+     //
+		if (cur_char == ')' &&  top_stack != '('){
+			return 0;
 		}
-		else if (cur_char == ']' && top_stack == '['){
-			popDynArr(stack);
+		else if (cur_char == ']' && top_stack != '['){
+		return 0;
 		}
-		else if (cur_char == '}' && top_stack == '{'){
-			popDynArr(stack);
+		else if (cur_char == '}' && top_stack != '{'){
+			return 0;
 		}
-	}
 
-	if (isEmptyDynArr(stack)== 1){
-		return 1;
-	}
-	return 0;
+		cur_char = nextChar(s);
+	 }
+
+	 return 1;
+     //
+	// if (isEmptyDynArr(stack)== 1){
+	// 	return 1;
+	// }
+	// return 0;
 }
 
 int main(int argc, char* argv[]){

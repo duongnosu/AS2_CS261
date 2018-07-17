@@ -3,7 +3,7 @@
 ** Program Filename: dynamicArray.c
 ** Author: Nhu Duong
 ** Date: July 15th, 2018
-** Description: functions for dynamic array and stack 
+** Description: functions for dynamic array and stack
 
 *********************************************************************/
 #include <assert.h>
